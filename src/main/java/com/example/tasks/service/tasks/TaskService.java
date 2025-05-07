@@ -65,6 +65,16 @@ public class TaskService implements ITaskService {
         iTaskRepo.delete(id);
     }
 
+    @Override
+    public List<Long> findOverdueIds() {
+        return iTaskRepo.findOverdueIds();
+    }
+
+    @Override
+    public void changeStatus(final Long id, final GlobalStatus status) {
+        iTaskRepo.changeStatus(id, status);
+    }
+
     private static long getNextId() {
         return ID.getAndIncrement();
     }
